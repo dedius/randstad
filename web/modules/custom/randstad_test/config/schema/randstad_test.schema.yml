@@ -1,0 +1,10 @@
+department.randstad_test.*:
+  type: config_entity
+  label: 'Department config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'

@@ -1,0 +1,43 @@
+randstad_test.registration_form:
+  path: '/registration/{department}'
+  defaults:
+    _controller: \Drupal\randstad_test\Controller\RegistrationController:registrationPage
+    _title: 'Registration form'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      department:
+        type: entity:department
+
+entity.department.collection:
+  path: '/admin/config/department'
+  defaults:
+    _entity_list: 'department'
+    _title: 'Departments list'
+  requirements:
+    _permission: 'manage event registrations'
+
+entity.department.add_form:
+  path: '/admin/config/add-department'
+  defaults:
+    _entity_form: 'department.add'
+    _title: 'Add new department'
+  requirements:
+    _permission: 'manage event registrations'
+
+entity.department.edit_form:
+  path: '/admin/config/department/{department}'
+  defaults:
+    _entity_form: 'department.add'
+    _title: 'Add new department'
+  requirements:
+    _permission: 'manage event registrations'
+
+entity.department.delete_form:
+  path: '/admin/config/{department}/delete'
+  defaults:
+    _entity_form: 'department.add'
+    _title: 'Add new department'
+  requirements:
+    _permission: 'manage event registrations'

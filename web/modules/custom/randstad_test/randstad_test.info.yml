@@ -1,0 +1,8 @@
+name: Randstad Test
+type: module
+description: 'Registration functionality.'
+package: Randstad
+core_version_requirement: ^8.9 || ^9
+
+dependencies:
+  - drupal:config_ignore

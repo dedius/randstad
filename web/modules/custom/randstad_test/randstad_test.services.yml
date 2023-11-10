@@ -1,0 +1,7 @@
+services:
+  randstad_test.count_registrations:
+    class: Drupal\randstad_test\RegistrationCount
+#    arguments:
+#      - '@current_user'
+#      - '@user.data'
+#      - '@tempstore.private'

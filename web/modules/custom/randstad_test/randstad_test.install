@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Database updates for Randstad Test.
+ */
+
+use Drupal\Core\Language\LanguageInterface;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
+
+/**
+ * Generate default Departments configuration.
+ */
+function randstad_test_install() {
+  $departments = [
+    'Finance',
+    'IT',
+    'Consulting',
+  ];
+
+  foreach ($departments as $label) {
+    $id = \Drupal::transliteration()
+      ->transliterate($label, LanguageInterface::LANGCODE_DEFAULT, '_');
+    $id = mb_strtolower($id);
+    $id = preg_replace('@[^a-z0-9_.]+@', '_', $id);
+    $department = \Drupal::entityTypeManager()
+      ->getStorage('department')
+      ->create([
+        'id' => $id,
+        'label' => $label,
+      ]);
+    $department->save();
+  }
+
+  $menu_link = MenuLinkContent::create([
+    'title' => 'Create new Department',
+    'link' => ['uri' => 'internal:/admin/config/add-department'],
+    'menu_name' => 'main',
+    'expanded' => TRUE,
+    'parent' => 0,
+  ]);
+  $menu_link->save();
+
+  $menu_link = MenuLinkContent::create([
+    'title' => 'Departments',
+    'link' => ['uri' => 'internal:/admin/config/department'],
+    'menu_name' => 'main',
+    'expanded' => TRUE,
+    'parent' => 0,
+  ]);
+  $menu_link->save();
+
+}
