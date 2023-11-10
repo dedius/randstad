@@ -1,0 +1,20 @@
+uuid: 1c13f0d0-a704-47df-879e-04c41c3b0475
+langcode: en
+status: true
+dependencies:
+  module:
+    - randstad_test
+  theme:
+    - olivero
+id: registrationcount
+theme: olivero
+region: content
+weight: -7
+provider: null
+plugin: registration_count
+settings:
+  id: registration_count
+  label: 'Registration count'
+  label_display: visible
+  provider: randstad_test
+visibility: {  }

@@ -1,0 +1,14 @@
+uuid: 3332dfd6-452f-44f1-9c72-8d24e69ba90a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.department_manager
+  module:
+    - user
+id: user_remove_role_action.department_manager
+label: 'Remove the Department manager role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: department_manager
